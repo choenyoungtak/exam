@@ -1,0 +1,41 @@
+
+int led[] = {8, 9, 10};
+
+
+
+void setup() {
+  Serial.begin(9600);
+  int i;
+  for(i = 0; i < 3; i++){
+   pinMode(led[i], OUTPUT); 
+  }
+}
+
+void loop() {
+  int flag;
+  for(flag = 0; flag < 4; flag++){
+    switch(flag){
+      case 0:
+        digitalWrite(led[0], HIGH);
+        digitalWrite(led[1], HIGH);
+        digitalWrite(led[2], HIGH);
+        Serial.println("\nLED 1, LED 2, LED 3 on");
+        break;
+      case 1:
+       digitalWrite(led[1], LOW);
+       digitalWrite(led[2], LOW);
+       Serial.println("\nLED 1 on");
+       break;
+      case 2:
+       digitalWrite(led[1], HIGH);
+       Serial.println("\nLED 1, LED 2 on");
+       break;
+      default:
+       digitalWrite(led[2], HIGH);
+       Serial.println("\nLED 1, LED 2, LED 3 on");
+       break;
+    }
+   
+   delay(1000);   
+  }
+}
