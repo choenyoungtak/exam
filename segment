@@ -1,0 +1,33 @@
+int ON = LOW;
+int OFF = HIGH;
+
+int digits[10] [8] = {
+{ON, ON, ON, ON, ON, ON, OFF, OFF},
+{OFF, ON, ON, OFF, OFF, OFF, OFF, OFF},
+{ON, ON, OFF, ON, ON, OFF, ON, OFF},
+{ON, ON, ON, ON, OFF, OFF, ON, OFF},
+{OFF, ON, ON, OFF, OFF, ON, ON, OFF},
+{ON, OFF, ON, ON, OFF, ON, ON, OFF},
+{ON, OFF, ON, ON, ON, ON, ON, OFF},
+{ON, ON, ON, OFF, OFF, OFF, OFF, OFF},
+{ON, ON, ON, ON, ON, ON, ON, OFF},
+{ON, ON, ON, OFF, OFF, ON, ON, OFF}
+};
+int i;
+int j;
+int led[]={13,6,7,8,9,10,11,12};
+
+void setup() {
+for(i = 0; i < 8; i++){
+pinMode(led[i], OUTPUT);
+}
+}
+
+void loop(){
+for(i = 0; i < 10; i++){
+for(j = 0; j < 8; j++){
+digitalWrite(led[j], digits[i][j]);
+}
+delay(1000);
+}
+}
