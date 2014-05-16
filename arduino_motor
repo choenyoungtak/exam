@@ -1,0 +1,18 @@
+#include <Servo.h>
+Servo groveServo;
+int Potentionmeter = A0;
+int val = 0;
+
+void setup(){
+  groveServo.attach(9);
+  Serial.begin(9600);
+  pinMode(Potentionmeter, INPUT);
+}
+
+void loop() {
+  val = analogRead(Potentionmeter);
+  val = map(val, 0, 1023, 0, 179);
+  Serial.println(val);
+  groveServo.write(val);
+  delay(20);
+}
